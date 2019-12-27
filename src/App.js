@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Router, Route } from 'react-router'
+import { createHashHistory } from 'history'
+import { fetchAllPosts, fetchAllUsers } from './store/actions'
+import PostContainer from './containers/Posts'
+import UserContainer from './containers/Users'
+import DetailsContainer from './containers/Details'
+import store from './store'
+import './App.less'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router history={createHashHistory()}>
+      <Route path="/login" component={() => (<div>login</div>)} />
+      <Route path="/posts" component={() => (<PostContainer />)} />
+      <Route path="/users" component={() => (<UserContainer />)} />
+      <Route path="/details" component={() => (<DetailsContainer />)} />
+      {/* <Route path="*" component={() => (<div>404 not found！</div>)} /> */}
+    </Router>
   );
 }
 
-export default App;
+store.dispatch(fetchAllPosts())
+store.dispatch(fetchAllUsers())
+
+
+export default App
