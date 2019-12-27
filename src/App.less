@@ -55,3 +55,17 @@
   text-align: center;
   -webkit-overflow-scrolling: touch;
 }
+
+.e-loading {
+  &:after {
+    content: '';
+    display: block;
+    border: solid 5px #888;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    animation: App-logo-spin infinite 2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+}

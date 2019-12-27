@@ -5,6 +5,7 @@ import { fetchAllPosts, fetchAllUsers } from './store/actions'
 import PostContainer from './containers/Posts'
 import UserContainer from './containers/Users'
 import DetailsContainer from './containers/Details'
+import Loading from './components/Loading'
 import store from './store'
 import './App.less'
 
@@ -15,6 +16,7 @@ function App() {
       <Route path="/posts" component={() => (<PostContainer />)} />
       <Route path="/users" component={() => (<UserContainer />)} />
       <Route path="/details" component={() => (<DetailsContainer />)} />
+      <Route path="/loading" component={() => (<Loading />)} />
       {/* <Route path="*" component={() => (<div>404 not found！</div>)} /> */}
     </Router>
   );
